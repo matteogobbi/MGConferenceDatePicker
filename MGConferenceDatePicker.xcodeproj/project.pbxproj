@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65C9DCA518A6FA8000BE275C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA418A6FA8000BE275C /* Foundation.framework */; };
+		65C9DCA718A6FA8000BE275C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA618A6FA8000BE275C /* CoreGraphics.framework */; };
+		65C9DCA918A6FA8000BE275C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA818A6FA8000BE275C /* UIKit.framework */; };
+		65C9DCAF18A6FA8000BE275C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C9DCAD18A6FA8000BE275C /* InfoPlist.strings */; };
+		65C9DCB118A6FA8000BE275C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9DCB018A6FA8000BE275C /* main.m */; };
+		65C9DCB518A6FA8000BE275C /* MGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9DCB418A6FA8000BE275C /* MGAppDelegate.m */; };
+		65C9DCB818A6FA8000BE275C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C9DCB618A6FA8000BE275C /* Main.storyboard */; };
+		65C9DCBB18A6FA8000BE275C /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9DCBA18A6FA8000BE275C /* MGViewController.m */; };
+		65C9DCBD18A6FA8000BE275C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C9DCBC18A6FA8000BE275C /* Images.xcassets */; };
+		65C9DCC418A6FA8000BE275C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCC318A6FA8000BE275C /* XCTest.framework */; };
+		65C9DCC518A6FA8000BE275C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA418A6FA8000BE275C /* Foundation.framework */; };
+		65C9DCC618A6FA8000BE275C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA818A6FA8000BE275C /* UIKit.framework */; };
+		65C9DCCE18A6FA8000BE275C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C9DCCC18A6FA8000BE275C /* InfoPlist.strings */; };
+		65C9DCD018A6FA8000BE275C /* MGConferenceDatePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9DCCF18A6FA8000BE275C /* MGConferenceDatePickerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65C9DCC718A6FA8000BE275C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65C9DC9918A6FA7F00BE275C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65C9DCA018A6FA8000BE275C;
+			remoteInfo = MGConferenceDatePicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65C9DCA118A6FA8000BE275C /* MGConferenceDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGConferenceDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C9DCA418A6FA8000BE275C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		65C9DCA618A6FA8000BE275C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		65C9DCA818A6FA8000BE275C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		65C9DCAC18A6FA8000BE275C /* MGConferenceDatePicker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MGConferenceDatePicker-Info.plist"; sourceTree = "<group>"; };
+		65C9DCAE18A6FA8000BE275C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65C9DCB018A6FA8000BE275C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		65C9DCB218A6FA8000BE275C /* MGConferenceDatePicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MGConferenceDatePicker-Prefix.pch"; sourceTree = "<group>"; };
+		65C9DCB318A6FA8000BE275C /* MGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAppDelegate.h; sourceTree = "<group>"; };
+		65C9DCB418A6FA8000BE275C /* MGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGAppDelegate.m; sourceTree = "<group>"; };
+		65C9DCB718A6FA8000BE275C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65C9DCB918A6FA8000BE275C /* MGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGViewController.h; sourceTree = "<group>"; };
+		65C9DCBA18A6FA8000BE275C /* MGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
+		65C9DCBC18A6FA8000BE275C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		65C9DCC218A6FA8000BE275C /* MGConferenceDatePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGConferenceDatePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C9DCC318A6FA8000BE275C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		65C9DCCB18A6FA8000BE275C /* MGConferenceDatePickerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MGConferenceDatePickerTests-Info.plist"; sourceTree = "<group>"; };
+		65C9DCCD18A6FA8000BE275C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65C9DCCF18A6FA8000BE275C /* MGConferenceDatePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGConferenceDatePickerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65C9DC9E18A6FA8000BE275C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C9DCA718A6FA8000BE275C /* CoreGraphics.framework in Frameworks */,
+				65C9DCA918A6FA8000BE275C /* UIKit.framework in Frameworks */,
+				65C9DCA518A6FA8000BE275C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65C9DCBF18A6FA8000BE275C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C9DCC418A6FA8000BE275C /* XCTest.framework in Frameworks */,
+				65C9DCC618A6FA8000BE275C /* UIKit.framework in Frameworks */,
+				65C9DCC518A6FA8000BE275C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65C9DC9818A6FA7F00BE275C = {
+			isa = PBXGroup;
+			children = (
+				65C9DCAA18A6FA8000BE275C /* MGConferenceDatePicker */,
+				65C9DCC918A6FA8000BE275C /* MGConferenceDatePickerTests */,
+				65C9DCA318A6FA8000BE275C /* Frameworks */,
+				65C9DCA218A6FA8000BE275C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65C9DCA218A6FA8000BE275C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65C9DCA118A6FA8000BE275C /* MGConferenceDatePicker.app */,
+				65C9DCC218A6FA8000BE275C /* MGConferenceDatePickerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65C9DCA318A6FA8000BE275C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65C9DCA418A6FA8000BE275C /* Foundation.framework */,
+				65C9DCA618A6FA8000BE275C /* CoreGraphics.framework */,
+				65C9DCA818A6FA8000BE275C /* UIKit.framework */,
+				65C9DCC318A6FA8000BE275C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65C9DCAA18A6FA8000BE275C /* MGConferenceDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				65C9DCB318A6FA8000BE275C /* MGAppDelegate.h */,
+				65C9DCB418A6FA8000BE275C /* MGAppDelegate.m */,
+				65C9DCB618A6FA8000BE275C /* Main.storyboard */,
+				65C9DCB918A6FA8000BE275C /* MGViewController.h */,
+				65C9DCBA18A6FA8000BE275C /* MGViewController.m */,
+				65C9DCBC18A6FA8000BE275C /* Images.xcassets */,
+				65C9DCAB18A6FA8000BE275C /* Supporting Files */,
+			);
+			path = MGConferenceDatePicker;
+			sourceTree = "<group>";
+		};
+		65C9DCAB18A6FA8000BE275C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				65C9DCAC18A6FA8000BE275C /* MGConferenceDatePicker-Info.plist */,
+				65C9DCAD18A6FA8000BE275C /* InfoPlist.strings */,
+				65C9DCB018A6FA8000BE275C /* main.m */,
+				65C9DCB218A6FA8000BE275C /* MGConferenceDatePicker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		65C9DCC918A6FA8000BE275C /* MGConferenceDatePickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				65C9DCCF18A6FA8000BE275C /* MGConferenceDatePickerTests.m */,
+				65C9DCCA18A6FA8000BE275C /* Supporting Files */,
+			);
+			path = MGConferenceDatePickerTests;
+			sourceTree = "<group>";
+		};
+		65C9DCCA18A6FA8000BE275C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				65C9DCCB18A6FA8000BE275C /* MGConferenceDatePickerTests-Info.plist */,
+				65C9DCCC18A6FA8000BE275C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65C9DCA018A6FA8000BE275C /* MGConferenceDatePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65C9DCD318A6FA8000BE275C /* Build configuration list for PBXNativeTarget "MGConferenceDatePicker" */;
+			buildPhases = (
+				65C9DC9D18A6FA8000BE275C /* Sources */,
+				65C9DC9E18A6FA8000BE275C /* Frameworks */,
+				65C9DC9F18A6FA8000BE275C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGConferenceDatePicker;
+			productName = MGConferenceDatePicker;
+			productReference = 65C9DCA118A6FA8000BE275C /* MGConferenceDatePicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65C9DCC118A6FA8000BE275C /* MGConferenceDatePickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65C9DCD618A6FA8000BE275C /* Build configuration list for PBXNativeTarget "MGConferenceDatePickerTests" */;
+			buildPhases = (
+				65C9DCBE18A6FA8000BE275C /* Sources */,
+				65C9DCBF18A6FA8000BE275C /* Frameworks */,
+				65C9DCC018A6FA8000BE275C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65C9DCC818A6FA8000BE275C /* PBXTargetDependency */,
+			);
+			name = MGConferenceDatePickerTests;
+			productName = MGConferenceDatePickerTests;
+			productReference = 65C9DCC218A6FA8000BE275C /* MGConferenceDatePickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65C9DC9918A6FA7F00BE275C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MG;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Matteo Gobbi";
+				TargetAttributes = {
+					65C9DCC118A6FA8000BE275C = {
+						TestTargetID = 65C9DCA018A6FA8000BE275C;
+					};
+				};
+			};
+			buildConfigurationList = 65C9DC9C18A6FA7F00BE275C /* Build configuration list for PBXProject "MGConferenceDatePicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65C9DC9818A6FA7F00BE275C;
+			productRefGroup = 65C9DCA218A6FA8000BE275C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65C9DCA018A6FA8000BE275C /* MGConferenceDatePicker */,
+				65C9DCC118A6FA8000BE275C /* MGConferenceDatePickerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65C9DC9F18A6FA8000BE275C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C9DCBD18A6FA8000BE275C /* Images.xcassets in Resources */,
+				65C9DCAF18A6FA8000BE275C /* InfoPlist.strings in Resources */,
+				65C9DCB818A6FA8000BE275C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65C9DCC018A6FA8000BE275C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C9DCCE18A6FA8000BE275C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65C9DC9D18A6FA8000BE275C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C9DCB518A6FA8000BE275C /* MGAppDelegate.m in Sources */,
+				65C9DCBB18A6FA8000BE275C /* MGViewController.m in Sources */,
+				65C9DCB118A6FA8000BE275C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65C9DCBE18A6FA8000BE275C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C9DCD018A6FA8000BE275C /* MGConferenceDatePickerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65C9DCC818A6FA8000BE275C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65C9DCA018A6FA8000BE275C /* MGConferenceDatePicker */;
+			targetProxy = 65C9DCC718A6FA8000BE275C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65C9DCAD18A6FA8000BE275C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65C9DCAE18A6FA8000BE275C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		65C9DCB618A6FA8000BE275C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65C9DCB718A6FA8000BE275C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65C9DCCC18A6FA8000BE275C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65C9DCCD18A6FA8000BE275C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65C9DCD118A6FA8000BE275C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		65C9DCD218A6FA8000BE275C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65C9DCD418A6FA8000BE275C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGConferenceDatePicker/MGConferenceDatePicker-Prefix.pch";
+				INFOPLIST_FILE = "MGConferenceDatePicker/MGConferenceDatePicker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		65C9DCD518A6FA8000BE275C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGConferenceDatePicker/MGConferenceDatePicker-Prefix.pch";
+				INFOPLIST_FILE = "MGConferenceDatePicker/MGConferenceDatePicker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		65C9DCD718A6FA8000BE275C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MGConferenceDatePicker.app/MGConferenceDatePicker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGConferenceDatePicker/MGConferenceDatePicker-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MGConferenceDatePickerTests/MGConferenceDatePickerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		65C9DCD818A6FA8000BE275C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MGConferenceDatePicker.app/MGConferenceDatePicker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MGConferenceDatePicker/MGConferenceDatePicker-Prefix.pch";
+				INFOPLIST_FILE = "MGConferenceDatePickerTests/MGConferenceDatePickerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65C9DC9C18A6FA7F00BE275C /* Build configuration list for PBXProject "MGConferenceDatePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65C9DCD118A6FA8000BE275C /* Debug */,
+				65C9DCD218A6FA8000BE275C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65C9DCD318A6FA8000BE275C /* Build configuration list for PBXNativeTarget "MGConferenceDatePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65C9DCD418A6FA8000BE275C /* Debug */,
+				65C9DCD518A6FA8000BE275C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65C9DCD618A6FA8000BE275C /* Build configuration list for PBXNativeTarget "MGConferenceDatePickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65C9DCD718A6FA8000BE275C /* Debug */,
+				65C9DCD818A6FA8000BE275C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65C9DC9918A6FA7F00BE275C /* Project object */;
+}
