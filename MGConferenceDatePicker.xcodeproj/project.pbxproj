@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65389EEF18DA6B4E00409AF7 /* MGConferenceDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65389EEE18DA6B4E00409AF7 /* MGConferenceDatePicker.m */; };
+		65389EF118DA6B6A00409AF7 /* MGCDPImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65389EF018DA6B6A00409AF7 /* MGCDPImages.xcassets */; };
+		65389EF318DA6CFD00409AF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65389EF218DA6CFD00409AF7 /* Images.xcassets */; };
 		65C9DCA518A6FA8000BE275C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA418A6FA8000BE275C /* Foundation.framework */; };
 		65C9DCA718A6FA8000BE275C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA618A6FA8000BE275C /* CoreGraphics.framework */; };
 		65C9DCA918A6FA8000BE275C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA818A6FA8000BE275C /* UIKit.framework */; };
@@ -15,7 +18,6 @@
 		65C9DCB518A6FA8000BE275C /* MGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9DCB418A6FA8000BE275C /* MGAppDelegate.m */; };
 		65C9DCB818A6FA8000BE275C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C9DCB618A6FA8000BE275C /* Main.storyboard */; };
 		65C9DCBB18A6FA8000BE275C /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9DCBA18A6FA8000BE275C /* MGViewController.m */; };
-		65C9DCBD18A6FA8000BE275C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C9DCBC18A6FA8000BE275C /* Images.xcassets */; };
 		65C9DCC418A6FA8000BE275C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCC318A6FA8000BE275C /* XCTest.framework */; };
 		65C9DCC518A6FA8000BE275C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA418A6FA8000BE275C /* Foundation.framework */; };
 		65C9DCC618A6FA8000BE275C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9DCA818A6FA8000BE275C /* UIKit.framework */; };
@@ -34,6 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65389EED18DA6B4E00409AF7 /* MGConferenceDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGConferenceDatePicker.h; sourceTree = "<group>"; };
+		65389EEE18DA6B4E00409AF7 /* MGConferenceDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGConferenceDatePicker.m; sourceTree = "<group>"; };
+		65389EF018DA6B6A00409AF7 /* MGCDPImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MGCDPImages.xcassets; sourceTree = "<group>"; };
+		65389EF218DA6CFD00409AF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		65389EF418DA6D9200409AF7 /* MGConferenceDatePickerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGConferenceDatePickerDelegate.h; sourceTree = "<group>"; };
 		65C9DCA118A6FA8000BE275C /* MGConferenceDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGConferenceDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C9DCA418A6FA8000BE275C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65C9DCA618A6FA8000BE275C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,7 +54,6 @@
 		65C9DCB718A6FA8000BE275C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65C9DCB918A6FA8000BE275C /* MGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGViewController.h; sourceTree = "<group>"; };
 		65C9DCBA18A6FA8000BE275C /* MGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
-		65C9DCBC18A6FA8000BE275C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		65C9DCC218A6FA8000BE275C /* MGConferenceDatePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGConferenceDatePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C9DCC318A6FA8000BE275C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		65C9DCCB18A6FA8000BE275C /* MGConferenceDatePickerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MGConferenceDatePickerTests-Info.plist"; sourceTree = "<group>"; };
@@ -79,6 +85,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65389EEC18DA6B4E00409AF7 /* MGConferenceDataPicker */ = {
+			isa = PBXGroup;
+			children = (
+				65389EF018DA6B6A00409AF7 /* MGCDPImages.xcassets */,
+				65389EED18DA6B4E00409AF7 /* MGConferenceDatePicker.h */,
+				65389EEE18DA6B4E00409AF7 /* MGConferenceDatePicker.m */,
+				65389EF418DA6D9200409AF7 /* MGConferenceDatePickerDelegate.h */,
+			);
+			path = MGConferenceDataPicker;
+			sourceTree = "<group>";
+		};
 		65C9DC9818A6FA7F00BE275C = {
 			isa = PBXGroup;
 			children = (
@@ -112,12 +129,13 @@
 		65C9DCAA18A6FA8000BE275C /* MGConferenceDatePicker */ = {
 			isa = PBXGroup;
 			children = (
+				65389EEC18DA6B4E00409AF7 /* MGConferenceDataPicker */,
 				65C9DCB318A6FA8000BE275C /* MGAppDelegate.h */,
 				65C9DCB418A6FA8000BE275C /* MGAppDelegate.m */,
+				65389EF218DA6CFD00409AF7 /* Images.xcassets */,
 				65C9DCB618A6FA8000BE275C /* Main.storyboard */,
 				65C9DCB918A6FA8000BE275C /* MGViewController.h */,
 				65C9DCBA18A6FA8000BE275C /* MGViewController.m */,
-				65C9DCBC18A6FA8000BE275C /* Images.xcassets */,
 				65C9DCAB18A6FA8000BE275C /* Supporting Files */,
 			);
 			path = MGConferenceDatePicker;
@@ -229,7 +247,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65C9DCBD18A6FA8000BE275C /* Images.xcassets in Resources */,
+				65389EF118DA6B6A00409AF7 /* MGCDPImages.xcassets in Resources */,
+				65389EF318DA6CFD00409AF7 /* Images.xcassets in Resources */,
 				65C9DCAF18A6FA8000BE275C /* InfoPlist.strings in Resources */,
 				65C9DCB818A6FA8000BE275C /* Main.storyboard in Resources */,
 			);
@@ -252,6 +271,7 @@
 			files = (
 				65C9DCB518A6FA8000BE275C /* MGAppDelegate.m in Sources */,
 				65C9DCBB18A6FA8000BE275C /* MGViewController.m in Sources */,
+				65389EEF18DA6B4E00409AF7 /* MGConferenceDatePicker.m in Sources */,
 				65C9DCB118A6FA8000BE275C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +481,7 @@
 				65C9DCD518A6FA8000BE275C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65C9DCD618A6FA8000BE275C /* Build configuration list for PBXNativeTarget "MGConferenceDatePickerTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +490,7 @@
 				65C9DCD818A6FA8000BE275C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

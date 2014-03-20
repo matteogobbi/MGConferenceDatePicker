@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGConferenceDatePicker.h"
+#import "MGConferenceDatePickerDelegate.h"
 
-@interface MGViewController : UIViewController
+@interface MGViewController : UIViewController <MGConferenceDatePickerDelegate>
 
 @end

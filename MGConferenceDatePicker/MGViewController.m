@@ -8,22 +8,30 @@
 
 #import "MGViewController.h"
 
-@interface MGViewController ()
-
-@end
-
 @implementation MGViewController
 
-- (void)viewDidLoad
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    //New view controller
+    UIViewController *pickerViewController = [[UIViewController alloc] init];
+    
+    //Init the datePicker view and set self as delegate
+    MGConferenceDatePicker *datePicker = [[MGConferenceDatePicker alloc] initWithFrame:self.view.bounds];
+    [datePicker setDelegate:self];
+    
+    //OPTIONAL: Choose the background color
+    [datePicker setBackgroundColor:[UIColor whiteColor]];
+    
+    //Set the data picker as view of the new view controller
+    [pickerViewController setView:datePicker];
+    
+    //Present the view controller
+    [self presentViewController:pickerViewController animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//Delegate
+-(void)conferenceDatePicker:(MGConferenceDatePicker *)datePicker saveDate:(NSDate *)date {
+    NSLog(@"%@",[date description]);
 }
 
 @end
