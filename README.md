@@ -31,7 +31,7 @@ This is an easy example to init the control from code:
     [self presentViewController:pickerViewController animated:YES completion:nil];
 ```
 
-Or you are also able to set the view directly in the NIB or in the XIBB file and simply just set the delegate from code.
+Or you are also able to set the view directly in the NIB or in the XIB file and simply just set the delegate from code.
 
 See the example's project.
 
