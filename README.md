@@ -1,7 +1,7 @@
 MGConferenceDatePicker
 ===============
 
-With this class, you can get images in the circles or squares with the border.
+MGConferenceDatePicker is an object wich extend a UIView furnishing a very nice type of data picker.
 
 ## Example Usage
 
