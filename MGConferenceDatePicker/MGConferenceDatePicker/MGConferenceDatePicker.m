@@ -37,7 +37,7 @@ NSString *NOW = @"Now";
 
 //Static macros and constants
 #define SELECTOR_ORIGIN (PICKER_HEIGHT/2.0-VALUE_HEIGHT/2.0)
-#define SAVE_AREA_ORIGIN_Y self.frame.size.height-SAVE_AREA_HEIGHT
+#define SAVE_AREA_ORIGIN_Y self.bounds.size.height-SAVE_AREA_HEIGHT
 #define PICKER_ORIGIN_Y SAVE_AREA_ORIGIN_Y-SAVE_AREA_MARGIN_TOP-PICKER_HEIGHT
 #define BAR_SEL_ORIGIN_Y PICKER_HEIGHT/2.0-VALUE_HEIGHT/2.0
 static const NSInteger SCROLLVIEW_MOMENTS_TAG = 0;
@@ -520,10 +520,6 @@ const float LBL_BORDER_OFFSET = 8.0;
         PICKER_HEIGHT = 300.0;
     } else {
         PICKER_HEIGHT = 212.0;
-        //Adjust the screen frame
-        CGRect rect = self.frame;
-        rect.size.height -= (568-480);
-        self.frame = rect;
     }
 }
 
