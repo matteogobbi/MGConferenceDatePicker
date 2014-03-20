@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1845DC29-28FC-4BA9-8EE9-4DE60977B104</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MGConferenceDatePicker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A0C11F51-B3E3-4761-9FD7-2C620F56B96D</key>
+		<string>https://github.com/matteogobbi/MGConferenceDatePicker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MGConferenceDatePicker.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A0C11F51-B3E3-4761-9FD7-2C620F56B96D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/matteogobbi/MGConferenceDatePicker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A0C11F51-B3E3-4761-9FD7-2C620F56B96D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A0C11F51-B3E3-4761-9FD7-2C620F56B96D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MGConferenceDatePicker</string>
+		</dict>
+	</array>
+</dict>
+</plist>
