@@ -3,6 +3,11 @@ MGConferenceDatePicker
 
 MGConferenceDatePicker is an object wich extend a UIView furnishing a very nice type of data picker.
 
+## Info
+
+This code must be used under ARC. 
+If your code doesn't use ARC you can [mark this source with the compiler flag](http://www.codeography.com/2011/10/10/making-arc-and-non-arc-play-nice.html) `-fobjc-arc` 
+
 ## Example Usage
 
 In the package is included the project to test the object.
