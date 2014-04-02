@@ -3,7 +3,7 @@ MGConferenceDatePicker
 
 MGConferenceDatePicker is an object wich extend a UIView furnishing a very nice type of data picker.
 
-<img src="https://s3.amazonaws.com/cocoacontrols_production/uploads/control_image/image/3273/Schermata_2014-03-20_alle_12.27.15.png" alt="MGConferenceDatePicker Screenshot" width=400px />
+<img src="http://i57.tinypic.com/2iln5ev.png" alt="MGConferenceDatePicker Screenshot" width=400px />
 
 ## Info
 
