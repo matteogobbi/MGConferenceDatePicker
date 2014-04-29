@@ -366,6 +366,8 @@ const float LBL_BORDER_OFFSET = 8.0;
     [self setTime:NOW];
     [self switchToDay:0];
     [_btPrev setEnabled:NO];
+    
+    [self setUserInteractionEnabled:YES];
 }
 
 
@@ -374,6 +376,8 @@ const float LBL_BORDER_OFFSET = 8.0;
 
 //Save button pressed
 - (void)saveButtonPressed:(id)sender {
+    [self setUserInteractionEnabled:NO];
+    
     //Create date
     NSDate *date = [self createDateWithFormat:@"dd-MM-yyyy hh:mm:ss a" andDateString:@"%@ %@:%@:00 %@"];
     
@@ -411,7 +415,16 @@ const float LBL_BORDER_OFFSET = 8.0;
     
     //Re-add the contentInset and set the new offset
     newOffset -= BAR_SEL_ORIGIN_Y;
+    
+    [CATransaction begin];
+    
+    [CATransaction setCompletionBlock:^{
+        [_saveButton setEnabled:YES];
+    }];
+    
     [scrollView setContentOffset:CGPointMake(0.0, newOffset) animated:YES];
+    
+    [CATransaction commit];
     
     //Highlight the cell
     [scrollView highlightCellWithIndexPathRow:indexPathRow];
@@ -420,8 +433,6 @@ const float LBL_BORDER_OFFSET = 8.0;
     if(scrollView == _svMoments) {
         [self setTime:_arrTimes[indexPathRow]];
     }
-    
-    [_saveButton setEnabled:YES];
 }
 
 //Return a date from a string
