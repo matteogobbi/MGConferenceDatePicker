@@ -554,10 +554,10 @@ const float LBL_BORDER_OFFSET = 8.0;
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [_svMoments setUserInteractionEnabled:NO];
+    [_svMoments setAlpha:0.5];
+        
     if (![scrollView isDragging]) {
-        [_svMoments setUserInteractionEnabled:NO];
-        [_svMoments setAlpha:0.5];
-    
         [self centerValueForScrollView:(MGPickerScrollView *)scrollView];
     }
 }
