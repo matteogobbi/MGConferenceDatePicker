@@ -420,6 +420,9 @@ const float LBL_BORDER_OFFSET = 8.0;
     
     [CATransaction setCompletionBlock:^{
         [_saveButton setEnabled:YES];
+        
+        [_svMoments setUserInteractionEnabled:YES];
+        [_svMoments setAlpha:1.0];
     }];
     
     [scrollView setContentOffset:CGPointMake(0.0, newOffset) animated:YES];
@@ -552,6 +555,9 @@ const float LBL_BORDER_OFFSET = 8.0;
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (![scrollView isDragging]) {
+        [_svMoments setUserInteractionEnabled:NO];
+        [_svMoments setAlpha:0.5];
+    
         [self centerValueForScrollView:(MGPickerScrollView *)scrollView];
     }
 }
