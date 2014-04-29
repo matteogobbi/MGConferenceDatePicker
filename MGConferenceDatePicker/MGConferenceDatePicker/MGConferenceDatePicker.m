@@ -510,8 +510,14 @@ const float LBL_BORDER_OFFSET = 8.0;
     [offsetComponents setDay:-2];
     NSDate *newDate = [gregorian dateByAddingComponents:offsetComponents toDate:_selectedDate options:0];
     
+    //Get just the date and not the time
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    newDate = [dateFormatter dateFromString:[self stringFromDate:newDate withFormat:@"dd-MM-yyyy"]];
+    NSDate *actDate = [dateFormatter dateFromString:[self stringFromDate:[NSDate date] withFormat:@"dd-MM-yyyy"]];
+    
     //If newDate is in the past
-    if([newDate compare:[NSDate date]] == NSOrderedAscending) {
+    if([newDate compare:actDate] == NSOrderedAscending) {
         //Disable button previus day
         [_btPrev setEnabled:NO];
     }
