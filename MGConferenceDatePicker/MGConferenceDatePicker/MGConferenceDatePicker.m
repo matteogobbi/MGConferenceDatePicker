@@ -421,6 +421,12 @@ const float LBL_BORDER_OFFSET = 8.0;
     [CATransaction setCompletionBlock:^{
         [_saveButton setEnabled:YES];
         
+        //Highlight the cell
+        [scrollView highlightCellWithIndexPathRow:indexPathRow];
+        
+        [scrollView setUserInteractionEnabled:YES];
+        [scrollView setAlpha:1.0];
+        
         [_svMoments setUserInteractionEnabled:YES];
         [_svMoments setAlpha:1.0];
     }];
@@ -428,9 +434,6 @@ const float LBL_BORDER_OFFSET = 8.0;
     [scrollView setContentOffset:CGPointMake(0.0, newOffset) animated:YES];
     
     [CATransaction commit];
-    
-    //Highlight the cell
-    [scrollView highlightCellWithIndexPathRow:indexPathRow];
     
     //Automatic setting of the time
     if(scrollView == _svMoments) {
@@ -556,7 +559,17 @@ const float LBL_BORDER_OFFSET = 8.0;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [_svMoments setUserInteractionEnabled:NO];
     [_svMoments setAlpha:0.5];
+    
+    if (scrollView == _svMoments) {
+        [_svMins setUserInteractionEnabled:NO];
+        [_svHours setUserInteractionEnabled:NO];
+        [_svMeridians setUserInteractionEnabled:NO];
         
+        [_svMins setAlpha:0.5];
+        [_svHours setAlpha:0.5];
+        [_svMeridians setAlpha:0.5];
+    }
+    
     if (![scrollView isDragging]) {
         [self centerValueForScrollView:(MGPickerScrollView *)scrollView];
     }
