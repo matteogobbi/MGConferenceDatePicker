@@ -106,6 +106,7 @@ static const NSInteger SCROLLVIEW_MOMENTS_TAG = 0;
 
 @property (nonatomic, strong) NSArray *arrValues;
 @property (nonatomic, strong) UIFont *cellFont;
+@property (nonatomic, assign, getter = isScrolling) BOOL scrolling;
 
 @end
 
@@ -419,16 +420,18 @@ const float LBL_BORDER_OFFSET = 8.0;
     [CATransaction begin];
     
     [CATransaction setCompletionBlock:^{
-        [_saveButton setEnabled:YES];
+        
+        if (![_svMins isScrolling] && ![_svHours isScrolling] && ![_svMeridians isScrolling]) {
+            [_saveButton setEnabled:YES];
+            [_svMoments setUserInteractionEnabled:YES];
+            [_svMoments setAlpha:1.0];
+        }
         
         //Highlight the cell
         [scrollView highlightCellWithIndexPathRow:indexPathRow];
         
         [scrollView setUserInteractionEnabled:YES];
         [scrollView setAlpha:1.0];
-        
-        [_svMoments setUserInteractionEnabled:YES];
-        [_svMoments setAlpha:1.0];
     }];
     
     [scrollView setContentOffset:CGPointMake(0.0, newOffset) animated:YES];
@@ -571,11 +574,15 @@ const float LBL_BORDER_OFFSET = 8.0;
     }
     
     if (![scrollView isDragging]) {
+        NSLog(@"didEndDragging");
+        [(MGPickerScrollView *)scrollView setScrolling:NO];
         [self centerValueForScrollView:(MGPickerScrollView *)scrollView];
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"didEndDecelerating");
+    [(MGPickerScrollView *)scrollView setScrolling:NO];
     [self centerValueForScrollView:(MGPickerScrollView *)scrollView];
 }
 
@@ -584,7 +591,7 @@ const float LBL_BORDER_OFFSET = 8.0;
     [_saveButton setEnabled:NO];
     
     MGPickerScrollView *sv = (MGPickerScrollView *)scrollView;
-    
+    [sv setScrolling:YES];
     [sv dehighlightLastCell];
 }
 
