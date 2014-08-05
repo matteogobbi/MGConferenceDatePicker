@@ -139,20 +139,22 @@ const float LBL_BORDER_OFFSET = 8.0;
 
 //Dehighlight the last cell
 - (void)dehighlightLastCell {
-    NSArray *paths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:_tagLastSelected inSection:0], nil];
+    UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_tagLastSelected inSection:0]];
+    [UIView transitionWithView:cell.textLabel duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        cell.textLabel.textColor = TEXT_COLOR;
+    } completion:NULL];
+    
     [self setTagLastSelected:-1];
-    [self beginUpdates];
-    [self reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationNone];
-    [self endUpdates];
+    
 }
 
 //Highlight a cell
 - (void)highlightCellWithIndexPathRow:(NSUInteger)indexPathRow {
     [self setTagLastSelected:indexPathRow];
-    NSArray *paths = [NSArray arrayWithObjects:[NSIndexPath indexPathForRow:_tagLastSelected inSection:0], nil];
-    [self beginUpdates];
-    [self reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationNone];
-    [self endUpdates];
+    UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_tagLastSelected inSection:0]];
+    [UIView transitionWithView:cell.textLabel duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        cell.textLabel.textColor = SELECTED_TEXT_COLOR;
+    } completion:NULL];
 }
 
 @end
