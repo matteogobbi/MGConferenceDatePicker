@@ -40,7 +40,7 @@ NSString *NOW = @"Now";
 #define SAVE_AREA_ORIGIN_Y self.bounds.size.height-SAVE_AREA_HEIGHT
 #define PICKER_ORIGIN_Y SAVE_AREA_ORIGIN_Y-SAVE_AREA_MARGIN_TOP-PICKER_HEIGHT
 #define BAR_SEL_ORIGIN_Y PICKER_HEIGHT/2.0-VALUE_HEIGHT/2.0
-static const NSInteger SCROLLVIEW_MOMENTS_TAG = 0;
+//static const NSInteger SCROLLVIEW_MOMENTS_TAG = 0;
 
 
 //Custom UIButton
@@ -193,13 +193,13 @@ const float LBL_BORDER_OFFSET = 8.0;
     [self checkScreenSize];
     
     //Create array Moments and create the dictionary MOMENT -> TIME
-    _arrMoments = @[@"Now",
-                    @"Morning",
-                    @"Lunchtime",
-                    @"Afternoon",
-                    @"Evening",
-                    @"Dinnertime",
-                    @"Night"];
+    _arrMoments = @[NSLocalizedString(@"NOW", nil),
+                    NSLocalizedString(@"MORNING", nil),
+                    NSLocalizedString(@"LUNCHTIME", nil),
+                    NSLocalizedString(@"AFTERNOON", nil),
+                    NSLocalizedString(@"EVENING", nil),
+                    NSLocalizedString(@"DINNERTIME", nil),
+                    NSLocalizedString(@"NIGHT", nil)];
     
     _arrTimes = @[NOW,
                   @"10:00 AM",
