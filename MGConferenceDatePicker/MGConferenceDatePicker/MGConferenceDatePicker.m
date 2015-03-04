@@ -495,7 +495,7 @@ const float LBL_BORDER_OFFSET = 8.0;
 //Switch to the previous or next day
 - (void)switchToDay:(NSInteger)dayOffset {
     //Calculate and save the new date
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [NSDateComponents new];
     
     //Set the offset
@@ -512,7 +512,7 @@ const float LBL_BORDER_OFFSET = 8.0;
 - (void)switchToDayPrev {
     //Check if the again previous day is a past day and in this case i disable the button
     //Calculate the new date
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [NSDateComponents new];
     
     //Set the offset
