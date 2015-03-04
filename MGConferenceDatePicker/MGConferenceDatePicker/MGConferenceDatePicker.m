@@ -40,7 +40,7 @@ NSString *NOW = @"Now";
 #define SAVE_AREA_ORIGIN_Y self.bounds.size.height-SAVE_AREA_HEIGHT
 #define PICKER_ORIGIN_Y SAVE_AREA_ORIGIN_Y-SAVE_AREA_MARGIN_TOP-PICKER_HEIGHT
 #define BAR_SEL_ORIGIN_Y PICKER_HEIGHT/2.0-VALUE_HEIGHT/2.0
-static const NSInteger SCROLLVIEW_MOMENTS_TAG = 0;
+//static const NSInteger SCROLLVIEW_MOMENTS_TAG = 0;
 
 
 //Custom UIButton
@@ -183,9 +183,12 @@ const float LBL_BORDER_OFFSET = 8.0;
 
 @implementation MGConferenceDatePicker
 
--(void)drawRect:(CGRect)rect {
-    [self initialize];
-    [self buildControl];
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self != nil) {
+        [self initialize];
+    }
+    return self;
 }
 
 - (void)initialize {
@@ -193,13 +196,13 @@ const float LBL_BORDER_OFFSET = 8.0;
     [self checkScreenSize];
     
     //Create array Moments and create the dictionary MOMENT -> TIME
-    _arrMoments = @[@"Now",
-                    @"Morning",
-                    @"Lunchtime",
-                    @"Afternoon",
-                    @"Evening",
-                    @"Dinnertime",
-                    @"Night"];
+    _arrMoments = @[NSLocalizedString(@"NOW", nil),
+                    NSLocalizedString(@"MORNING", nil),
+                    NSLocalizedString(@"LUNCHTIME", nil),
+                    NSLocalizedString(@"AFTERNOON", nil),
+                    NSLocalizedString(@"EVENING", nil),
+                    NSLocalizedString(@"DINNERTIME", nil),
+                    NSLocalizedString(@"NIGHT", nil)];
     
     _arrTimes = @[NOW,
                   @"10:00 AM",
@@ -227,148 +230,154 @@ const float LBL_BORDER_OFFSET = 8.0;
     }
     _arrMinutes = [NSArray arrayWithArray:arrMinutes];
     
-    //Set the acutal date
+    //Set the actual date
     _selectedDate = [NSDate date];
 }
 
-
-- (void)buildControl {
-    //Create a view as base of the picker
-    UIView *pickerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, PICKER_ORIGIN_Y, self.frame.size.width, PICKER_HEIGHT)];
-    [pickerView setBackgroundColor:self.backgroundColor];
+- (void)layoutSubviews {
+    NSLog(@"layoutSubviews");
     
-    //Create bar selector
-    UIView *barSel = [[UIView alloc] initWithFrame:CGRectMake(0.0, BAR_SEL_ORIGIN_Y, self.frame.size.width, VALUE_HEIGHT)];
-    [barSel setBackgroundColor:BAR_SEL_COLOR];
+    [super layoutSubviews];
     
-    
-    //Create the first column (moments) of the picker
-    _svMoments = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, SV_MOMENTS_WIDTH, PICKER_HEIGHT) andValues:_arrMoments withTextAlign:NSTextAlignmentRight andTextSize:14.0];
-    _svMoments.tag = 0;
-    [_svMoments setDelegate:self];
-    [_svMoments setDataSource:self];
-    
-    //Create the second column (hours) of the picker
-    _svHours = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(SV_MOMENTS_WIDTH, 0.0, SV_HOURS_WIDTH, PICKER_HEIGHT) andValues:_arrHours withTextAlign:NSTextAlignmentCenter  andTextSize:25.0];
-    _svHours.tag = 1;
-    [_svHours setDelegate:self];
-    [_svHours setDataSource:self];
-    
-    //Create the third column (minutes) of the picker
-    _svMins = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(_svHours.frame.origin.x+SV_HOURS_WIDTH, 0.0, SV_MINUTES_WIDTH, PICKER_HEIGHT) andValues:_arrMinutes withTextAlign:NSTextAlignmentCenter andTextSize:25.0];
-    _svMins.tag = 2;
-    [_svMins setDelegate:self];
-    [_svMins setDataSource:self];
-    
-    //Create the fourth column (meridians) of the picker
-    _svMeridians = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(_svMins.frame.origin.x+SV_MINUTES_WIDTH, 0.0, SV_MERIDIANS_WIDTH, PICKER_HEIGHT) andValues:_arrMeridians withTextAlign:NSTextAlignmentLeft andTextSize:14.0];
-    _svMeridians.tag = 3;
-    [_svMeridians setDelegate:self];
-    [_svMeridians setDataSource:self];
-    
-    
-    //Create separators lines
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(SV_MOMENTS_WIDTH-1.0, 0.0, 2.0, PICKER_HEIGHT)];
-    [line setBackgroundColor:LINE_COLOR];
-    
-    UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(_svHours.frame.origin.x+SV_HOURS_WIDTH-1.0, 0.0, 2.0, PICKER_HEIGHT)];
-    [line2 setBackgroundColor:LINE_COLOR];
-    
-    UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(_svMins.frame.origin.x+SV_MINUTES_WIDTH-1.0, 0.0, 2.0, PICKER_HEIGHT)];
-    [line3 setBackgroundColor:LINE_COLOR];
-    
-    
-    //Layer gradient
-    CAGradientLayer *gradientLayerTop = [CAGradientLayer layer];
-    gradientLayerTop.frame = CGRectMake(0.0, 0.0, pickerView.frame.size.width, PICKER_HEIGHT/2.0);
-    gradientLayerTop.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithWhite:1.0 alpha:0.0].CGColor, (id)self.backgroundColor.CGColor, nil];
-    gradientLayerTop.startPoint = CGPointMake(0.0f, 0.7f);
-    gradientLayerTop.endPoint = CGPointMake(0.0f, 0.0f);
-    
-    CAGradientLayer *gradientLayerBottom = [CAGradientLayer layer];
-    gradientLayerBottom.frame = CGRectMake(0.0, PICKER_HEIGHT/2.0, pickerView.frame.size.width, PICKER_HEIGHT/2.0);
-    gradientLayerBottom.colors = gradientLayerTop.colors;
-    gradientLayerBottom.startPoint = CGPointMake(0.0f, 0.3f);
-    gradientLayerBottom.endPoint = CGPointMake(0.0f, 1.0f);
-    
-    
-    //Create save area
-    UIView *saveArea = [[UIView alloc] initWithFrame:CGRectMake(0.0, SAVE_AREA_ORIGIN_Y, self.frame.size.width, SAVE_AREA_HEIGHT)];
-    [saveArea setBackgroundColor:SAVE_AREA_COLOR];
-    
-    
-    //Create save button
-    _saveButton = [[MGPickerButton alloc] initWithFrame:CGRectMake(10.0, 10.0, self.frame.size.width-20.0, SAVE_AREA_HEIGHT-20.0)];
-    [_saveButton setTitle:@"Save" forState:UIControlStateNormal];
-    [_saveButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //Create week day
-    _lblWeekDay = [[UILabel alloc] initWithFrame:CGRectMake(60.0, PICKER_ORIGIN_Y-60.0, 200.0, 44.0)];
-    //[_lblWeekDay setBackgroundColor:[UIColor redColor]];
-    [_lblWeekDay setText:@"Wednesday"];
-    [_lblWeekDay setTextAlignment:NSTextAlignmentCenter];
-    [_lblWeekDay setFont:[UIFont fontWithName:FONT_NAME size:25.0]];
-    [_lblWeekDay setTextColor:BAR_SEL_COLOR];
-    [self addSubview:_lblWeekDay];
-    
-    //Create field day and month
-    _lblDayMonth = [[UILabel alloc] initWithFrame:CGRectMake(60.0, _lblWeekDay.frame.origin.y-30.0, 200.0, 30.0)];
-    //[_lblDayMonth setBackgroundColor:[UIColor redColor]];
-    [_lblDayMonth setText:@"23 December 2013"];
-    [_lblDayMonth setTextAlignment:NSTextAlignmentCenter];
-    [_lblDayMonth setFont:[UIFont fontWithName:FONT_NAME size:16.0]];
-    [_lblDayMonth setTextColor:TEXT_COLOR];
-    [self addSubview:_lblDayMonth];
-    
-    //Create arrow next/previous
-    _btPrev = [[UIButton alloc] initWithFrame:CGRectMake(40.0, _lblWeekDay.frame.origin.y+_lblWeekDay.frame.size.height/2-15.0, 30.0, 30.0)];
-    [_btPrev setImage:[UIImage imageNamed:@"left_date_arrow_blue"] forState:UIControlStateNormal];
-    _btPrev.contentMode = UIViewContentModeCenter;
-    [_btPrev setTitleColor:BAR_SEL_COLOR forState:UIControlStateNormal];
-    [_btPrev addTarget:self action:@selector(switchToDayPrev) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_btPrev];
-    
-    _btNext = [[UIButton alloc] initWithFrame:CGRectMake(250.0, _lblWeekDay.frame.origin.y+_lblWeekDay.frame.size.height/2-15.0, 30.0, 30.0)];
-    [_btNext setImage:[UIImage imageNamed:@"right_date_arrow_blue"] forState:UIControlStateNormal];
-    _btNext.contentMode = UIViewContentModeCenter;
-    [_btNext setTitleColor:BAR_SEL_COLOR forState:UIControlStateNormal];
-    [_btNext addTarget:self action:@selector(switchToDayNext) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_btNext];
-    
-    
-    //Add pickerView
-    [self addSubview:pickerView];
-    
-    //Add separator lines
-    [pickerView addSubview:line];
-    [pickerView addSubview:line2];
-    [pickerView addSubview:line3];
-    
-    //Add the bar selector
-    [pickerView addSubview:barSel];
-    
-    //Add scrollViews
-    [pickerView addSubview:_svMoments];
-    [pickerView addSubview:_svHours];
-    [pickerView addSubview:_svMins];
-    [pickerView addSubview:_svMeridians];
-    
-    //Add gradients
-    [pickerView.layer addSublayer:gradientLayerTop];
-    [pickerView.layer addSublayer:gradientLayerBottom];
-    
-    //Add Savearea
-    [self addSubview:saveArea];
-    
-    //Add button save
-    [saveArea addSubview:_saveButton];
-    
-    //Set the time to now
-    [self setTime:NOW];
-    [self switchToDay:0];
-    [_btPrev setEnabled:NO];
-    
-    [self setUserInteractionEnabled:YES];
+    // Create views if necessary
+    if (_svMoments == nil) {
+        //Create a view as base of the picker
+        UIView *pickerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, PICKER_ORIGIN_Y, self.frame.size.width, PICKER_HEIGHT)];
+        [pickerView setBackgroundColor:self.backgroundColor];
+        
+        //Create bar selector
+        UIView *barSel = [[UIView alloc] initWithFrame:CGRectMake(0.0, BAR_SEL_ORIGIN_Y, self.frame.size.width, VALUE_HEIGHT)];
+        [barSel setBackgroundColor:BAR_SEL_COLOR];
+        
+        
+        //Create the first column (moments) of the picker
+        _svMoments = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, SV_MOMENTS_WIDTH, PICKER_HEIGHT) andValues:_arrMoments withTextAlign:NSTextAlignmentRight andTextSize:14.0];
+        _svMoments.tag = 0;
+        [_svMoments setDelegate:self];
+        [_svMoments setDataSource:self];
+        
+        //Create the second column (hours) of the picker
+        _svHours = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(SV_MOMENTS_WIDTH, 0.0, SV_HOURS_WIDTH, PICKER_HEIGHT) andValues:_arrHours withTextAlign:NSTextAlignmentCenter  andTextSize:25.0];
+        _svHours.tag = 1;
+        [_svHours setDelegate:self];
+        [_svHours setDataSource:self];
+        
+        //Create the third column (minutes) of the picker
+        _svMins = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(_svHours.frame.origin.x+SV_HOURS_WIDTH, 0.0, SV_MINUTES_WIDTH, PICKER_HEIGHT) andValues:_arrMinutes withTextAlign:NSTextAlignmentCenter andTextSize:25.0];
+        _svMins.tag = 2;
+        [_svMins setDelegate:self];
+        [_svMins setDataSource:self];
+        
+        //Create the fourth column (meridians) of the picker
+        _svMeridians = [[MGPickerScrollView alloc] initWithFrame:CGRectMake(_svMins.frame.origin.x+SV_MINUTES_WIDTH, 0.0, SV_MERIDIANS_WIDTH, PICKER_HEIGHT) andValues:_arrMeridians withTextAlign:NSTextAlignmentLeft andTextSize:14.0];
+        _svMeridians.tag = 3;
+        [_svMeridians setDelegate:self];
+        [_svMeridians setDataSource:self];
+        
+        
+        //Create separators lines
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(SV_MOMENTS_WIDTH-1.0, 0.0, 2.0, PICKER_HEIGHT)];
+        [line setBackgroundColor:LINE_COLOR];
+        
+        UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(_svHours.frame.origin.x+SV_HOURS_WIDTH-1.0, 0.0, 2.0, PICKER_HEIGHT)];
+        [line2 setBackgroundColor:LINE_COLOR];
+        
+        UIView *line3 = [[UIView alloc] initWithFrame:CGRectMake(_svMins.frame.origin.x+SV_MINUTES_WIDTH-1.0, 0.0, 2.0, PICKER_HEIGHT)];
+        [line3 setBackgroundColor:LINE_COLOR];
+        
+        
+        //Layer gradient
+        CAGradientLayer *gradientLayerTop = [CAGradientLayer layer];
+        gradientLayerTop.frame = CGRectMake(0.0, 0.0, pickerView.frame.size.width, PICKER_HEIGHT/2.0);
+        gradientLayerTop.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithWhite:1.0 alpha:0.0].CGColor, (id)self.backgroundColor.CGColor, nil];
+        gradientLayerTop.startPoint = CGPointMake(0.0f, 0.7f);
+        gradientLayerTop.endPoint = CGPointMake(0.0f, 0.0f);
+        
+        CAGradientLayer *gradientLayerBottom = [CAGradientLayer layer];
+        gradientLayerBottom.frame = CGRectMake(0.0, PICKER_HEIGHT/2.0, pickerView.frame.size.width, PICKER_HEIGHT/2.0);
+        gradientLayerBottom.colors = gradientLayerTop.colors;
+        gradientLayerBottom.startPoint = CGPointMake(0.0f, 0.3f);
+        gradientLayerBottom.endPoint = CGPointMake(0.0f, 1.0f);
+        
+        
+        //Create save area
+        UIView *saveArea = [[UIView alloc] initWithFrame:CGRectMake(0.0, SAVE_AREA_ORIGIN_Y, self.frame.size.width, SAVE_AREA_HEIGHT)];
+        [saveArea setBackgroundColor:SAVE_AREA_COLOR];
+        
+        
+        //Create save button
+        _saveButton = [[MGPickerButton alloc] initWithFrame:CGRectMake(10.0, 10.0, self.frame.size.width-20.0, SAVE_AREA_HEIGHT-20.0)];
+        [_saveButton setTitle:NSLocalizedString(@"SAVE", nil) forState:UIControlStateNormal];
+        [_saveButton addTarget:self action:@selector(saveButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //Create week day
+        _lblWeekDay = [[UILabel alloc] initWithFrame:CGRectMake(60.0, PICKER_ORIGIN_Y-60.0, 200.0, 44.0)];
+        //[_lblWeekDay setBackgroundColor:[UIColor redColor]];
+        // [_lblWeekDay setText:@"Wednesday"];
+        [_lblWeekDay setTextAlignment:NSTextAlignmentCenter];
+        [_lblWeekDay setFont:[UIFont fontWithName:FONT_NAME size:25.0]];
+        [_lblWeekDay setTextColor:BAR_SEL_COLOR];
+        [self addSubview:_lblWeekDay];
+        
+        //Create field day and month
+        _lblDayMonth = [[UILabel alloc] initWithFrame:CGRectMake(60.0, _lblWeekDay.frame.origin.y-30.0, 200.0, 30.0)];
+        //[_lblDayMonth setBackgroundColor:[UIColor redColor]];
+        // [_lblDayMonth setText:@"23 December 2013"];
+        [_lblDayMonth setTextAlignment:NSTextAlignmentCenter];
+        [_lblDayMonth setFont:[UIFont fontWithName:FONT_NAME size:16.0]];
+        [_lblDayMonth setTextColor:TEXT_COLOR];
+        [self addSubview:_lblDayMonth];
+        
+        //Create arrow next/previous
+        _btPrev = [[UIButton alloc] initWithFrame:CGRectMake(40.0, _lblWeekDay.frame.origin.y+_lblWeekDay.frame.size.height/2-15.0, 30.0, 30.0)];
+        [_btPrev setImage:[UIImage imageNamed:@"left_date_arrow_blue"] forState:UIControlStateNormal];
+        _btPrev.contentMode = UIViewContentModeCenter;
+        [_btPrev setTitleColor:BAR_SEL_COLOR forState:UIControlStateNormal];
+        [_btPrev addTarget:self action:@selector(switchToDayPrev) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_btPrev];
+        
+        _btNext = [[UIButton alloc] initWithFrame:CGRectMake(250.0, _lblWeekDay.frame.origin.y+_lblWeekDay.frame.size.height/2-15.0, 30.0, 30.0)];
+        [_btNext setImage:[UIImage imageNamed:@"right_date_arrow_blue"] forState:UIControlStateNormal];
+        _btNext.contentMode = UIViewContentModeCenter;
+        [_btNext setTitleColor:BAR_SEL_COLOR forState:UIControlStateNormal];
+        [_btNext addTarget:self action:@selector(switchToDayNext) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_btNext];
+        
+        
+        //Add pickerView
+        [self addSubview:pickerView];
+        
+        //Add separator lines
+        [pickerView addSubview:line];
+        [pickerView addSubview:line2];
+        [pickerView addSubview:line3];
+        
+        //Add the bar selector
+        [pickerView addSubview:barSel];
+        
+        //Add scrollViews
+        [pickerView addSubview:_svMoments];
+        [pickerView addSubview:_svHours];
+        [pickerView addSubview:_svMins];
+        [pickerView addSubview:_svMeridians];
+        
+        //Add gradients
+        [pickerView.layer addSublayer:gradientLayerTop];
+        [pickerView.layer addSublayer:gradientLayerBottom];
+        
+        //Add Savearea
+        [self addSubview:saveArea];
+        
+        //Add button save
+        [saveArea addSubview:_saveButton];
+        
+        //Set the time to now
+        [self setTime:NOW];
+        [self switchToDay:0];
+        [_btPrev setEnabled:NO];
+        
+        [self setUserInteractionEnabled:YES];
+    }
 }
 
 
@@ -495,7 +504,7 @@ const float LBL_BORDER_OFFSET = 8.0;
 //Switch to the previous or next day
 - (void)switchToDay:(NSInteger)dayOffset {
     //Calculate and save the new date
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [NSDateComponents new];
     
     //Set the offset
@@ -512,7 +521,7 @@ const float LBL_BORDER_OFFSET = 8.0;
 - (void)switchToDayPrev {
     //Check if the again previous day is a past day and in this case i disable the button
     //Calculate the new date
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [NSDateComponents new];
     
     //Set the offset

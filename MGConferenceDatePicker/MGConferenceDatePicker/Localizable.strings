@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  MGConferenceDatePicker
+
+  Created by Robert La Ferla on 3/4/15.
+  Copyright (c) 2015 Matteo Gobbi. All rights reserved.
+*/
+
+"NOW" = "Now";
+"MORNING" = "Morning";
+"LUNCHTIME" = "Lunchtime";
+"AFTERNOON" = "Afternoon";
+"EVENING" = "Evening";
+"DINNERTIME" = "Dinnertime";
+"NIGHT" = "Night";
